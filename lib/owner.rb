@@ -16,6 +16,9 @@ class Owner
   def buy_cat(name)
     cat = Cat.new(name)
     @pets[:cats] << cat
+    
+    # Shorter version
+    # @pets[:cats] << Cat.new(name)
   end
   
   def buy_dog(name)
@@ -44,7 +47,7 @@ class Owner
   end
   
   def sell_pets
-    @pets.each do |kind_of_pet, individual_pets|
+    @pets.each do |species, individual_pets|
       individual_pets.each do |pet|
         pet.mood = "nervous"
       end
@@ -75,10 +78,10 @@ class Owner
   end
   
   def self.count
-    @@all.length
+    @@all.size
   end
   
   def self.reset_all
-    @@all = []
+    @@all.clear
   end
 end
